@@ -5,10 +5,8 @@ import { useAuth } from "../../context/AuthContext";
 import ConfirmDeleteModal from "../ConfirmDeleteModal";
 import Button from "../../ui/Button";
 
-const API_BASE_URL = "http://localhost:5000";
-
 const ClinicList = () => {
-  const { isAuthenticated, token, isAdmin } = useAuth();
+  const { isAuthenticated, token, isAdmin, API_BASE_URL } = useAuth();
   const [clinics, setClinics] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filter, setFilter] = useState("all");
@@ -49,7 +47,7 @@ const ClinicList = () => {
     };
 
     fetchClinics();
-  }, [isAuthenticated, token, location.state]);
+  }, [isAuthenticated, token, location.state, API_BASE_URL]);
 
   const toggleAvailability = async (id, currentAvailability) => {
     try {

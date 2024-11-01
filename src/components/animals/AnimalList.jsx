@@ -6,10 +6,8 @@ import EditAnimalModal from "./EditAnimalModal";
 import ConfirmDeleteModal from "../ConfirmDeleteModal";
 import PropTypes from "prop-types";
 
-const API_BASE_URL = "http://localhost:5000";
-
 const AnimalList = () => {
-  const { isAuthenticated, token } = useAuth();
+  const { isAuthenticated, token, API_BASE_URL } = useAuth();
   const [animals, setAnimals] = useState([]);
   const [selectedAnimal, setSelectedAnimal] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -40,7 +38,7 @@ const AnimalList = () => {
     };
 
     fetchAnimals();
-  }, [isAuthenticated, token]);
+  }, [isAuthenticated, token, API_BASE_URL]);
 
   const deleteAnimal = async (id) => {
     try {

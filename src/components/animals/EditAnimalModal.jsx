@@ -4,10 +4,8 @@ import { AuthContext } from '../../context/AuthContext';
 import Button from '../../ui/Button';
 import PropTypes from 'prop-types';
 
-const API_BASE_URL = 'http://localhost:5000';
-
 const EditAnimalModal = ({ animal, onAnimalUpdated, onClose }) => {
-  const { isAuthenticated, token } = useContext(AuthContext);
+  const { isAuthenticated, token, API_BASE_URL } = useContext(AuthContext);
   const [name, setName] = useState(animal.name);
   const [race, setRace] = useState(animal.race);
   const [age, setAge] = useState(animal.age);

@@ -5,10 +5,8 @@ import { useAuth } from "../../context/AuthContext";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
 const AnimalSelector = ({ selectedAnimal, onAnimalSelect }) => {
-  const { isAuthenticated, token } = useAuth();
+  const { isAuthenticated, token, API_BASE_URL } = useAuth();
   const [animals, setAnimals] = useState([]);
-
-  const API_BASE_URL = "http://localhost:5000";
 
   useEffect(() => {
     const fetchAnimals = async () => {
@@ -34,7 +32,7 @@ const AnimalSelector = ({ selectedAnimal, onAnimalSelect }) => {
     };
 
     fetchAnimals();
-  }, [isAuthenticated, token]);
+  }, [isAuthenticated, token, API_BASE_URL]);
 
   const selectedAnimalName = animals.find(
     (animal) => animal.id === parseInt(selectedAnimal, 10)

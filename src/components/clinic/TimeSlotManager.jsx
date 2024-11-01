@@ -6,10 +6,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format, isAfter } from "date-fns";
 
-const API_BASE_URL = "http://127.0.0.1:5000";
-
 const TimeslotManager = ({ clinicId }) => {
-  const { isAdmin, token } = useAuth();
+  const { isAdmin, token, API_BASE_URL } = useAuth();
   const [selectedDate, setSelectedDate] = useState(null);
   const [startTime, setStartTime] = useState(null);
   const [endTime, setEndTime] = useState(null);

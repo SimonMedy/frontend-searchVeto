@@ -3,10 +3,8 @@ import axios from "axios";
 import { AuthContext } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE_URL = "http://localhost:5000";
-
 const AddClinicForm = () => {
-  const { isAuthenticated, token, isAdmin } = useContext(AuthContext);
+  const { isAuthenticated, token, isAdmin, API_BASE_URL } = useContext(AuthContext);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

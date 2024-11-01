@@ -5,10 +5,8 @@ import { CheckBadgeIcon, XCircleIcon } from "@heroicons/react/24/outline";
 import AppointmentCard from "../components/rendezvous/AppointmentCard";
 import { parse } from "date-fns";
 
-const API_BASE_URL = "http://127.0.0.1:5000";
-
 const MesRendezVous = () => {
-  const { isAuthenticated, token } = useAuth();
+  const { isAuthenticated, token, API_BASE_URL } = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -39,7 +37,7 @@ const MesRendezVous = () => {
     };
 
     fetchAppointments();
-  }, [isAuthenticated, token]);
+  }, [isAuthenticated, token, API_BASE_URL]);
 
   if (loading) {
     return <p>Chargement des rendez-vous...</p>;

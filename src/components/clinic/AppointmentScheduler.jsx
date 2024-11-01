@@ -7,10 +7,8 @@ import TimeSlotList from "./TimeSlotList";
 import PropTypes from "prop-types";
 import { format } from "date-fns";
 
-const API_BASE_URL = "http://127.0.0.1:5000";
-
 const AppointmentScheduler = ({ clinicId, animalId }) => {
-  const { isAuthenticated, token } = useAuth();
+  const { isAuthenticated, token, API_BASE_URL } = useAuth();
   const [date, setDate] = useState(new Date());
   const [timeSlots, setTimeSlots] = useState([]);
   const [selectedTimeSlot, setSelectedTimeSlot] = useState(null);
@@ -48,7 +46,7 @@ const AppointmentScheduler = ({ clinicId, animalId }) => {
     };
 
     fetchTimeSlots();
-  }, [date, clinicId, isAuthenticated, token]);
+  }, [date, clinicId, isAuthenticated, token, API_BASE_URL]);
 
   const handleTimeSlotSelect = (timeSlotId) => {
     setSelectedTimeSlot(timeSlotId);

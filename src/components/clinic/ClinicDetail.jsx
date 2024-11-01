@@ -6,14 +6,12 @@ import TimeslotManager from "./TimeSlotManager";
 import { useAuth } from "../../context/AuthContext";
 import axios from "axios";
 
-const API_BASE_URL = "http://127.0.0.1:5000";
-
 const ClinicDetail = () => {
   const { id } = useParams();
   const clinicId = parseInt(id, 10);
   const [selectedAnimal, setSelectedAnimal] = useState("");
   const [clinic, setClinic] = useState(null);
-  const { isAdmin, token } = useAuth();
+  const { isAdmin, token, API_BASE_URL } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -41,7 +39,7 @@ const ClinicDetail = () => {
     };
 
     fetchClinic();
-  }, [clinicId, token, navigate]);
+  }, [clinicId, token, navigate, API_BASE_URL]);
 
   return (
     <div className="min-h-screen container mx-auto mt-4 p-4">
