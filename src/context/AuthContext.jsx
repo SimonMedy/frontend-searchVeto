@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 const AuthContext = createContext();
-const API_BASE_URL = "https://backend-search-veto-byg2odrct-yxtomixs-projects.vercel.app";
+const API_BASE_URL = "https://searchveto-api.vercel.app";
 
 const AuthProvider = ({ children }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
